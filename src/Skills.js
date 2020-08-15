@@ -1,32 +1,16 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import { faHtml5, faCss3Alt, faJs, faSass, faLess, faNodeJs, faReact, faVuejs, faGitAlt, faNpm, faYarn,
+import { faHtml5, faCss3Alt, faJs, 
+  // faSass, 
+  faLess, faNodeJs, faReact, faVuejs, faGitAlt, faNpm, faYarn,
   faPhp, faWordpressSimple, faDrupal, faGrav, faMagento,
-  faDocker, faAws, faAdobe } from '@fortawesome/free-brands-svg-icons';
+  // faDocker, faAws, 
+  faAdobe } from '@fortawesome/free-brands-svg-icons';
 
 
 import  {ReactComponent as Sass}  from './assets/icons/sass.svg';
 
-{/* <FontAwesomeIcon icon={faHtml5} />
-            <FontAwesomeIcon icon={faCss3Alt} />
-            <FontAwesomeIcon icon={faSass} />
-            <FontAwesomeIcon icon={faLess} />
-            <br />
-            <FontAwesomeIcon icon={faJs} />
-            <FontAwesomeIcon icon={faNodeJs} />
-            <FontAwesomeIcon icon={faReact} />
-            <FontAwesomeIcon icon={faVuejs} />
-            <FontAwesomeIcon icon={faNpm} />
-            <FontAwesomeIcon icon={faYarn} />
-            <FontAwesomeIcon icon={faGitAlt} />
-            <br />
-            <FontAwesomeIcon icon={faPhp} />
-            <FontAwesomeIcon icon={faWordpress} />
-            <FontAwesomeIcon icon={faGrav} />
-            <FontAwesomeIcon icon={faDrupal} />
-            <FontAwesomeIcon icon={faMagento} />
-            <FontAwesomeIcon icon={faAdobe} /> */}
 
 
 const Skills = () => {
