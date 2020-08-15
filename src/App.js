@@ -7,7 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { faHtml5, faCss3Alt, faJs, faSass, faLess, faNodeJs, faReact, faVuejs, faGitAlt, faNpm, faYarn,
   faPhp, faWordpress, faDrupal, faGrav, faMagento,
-  faDocker, faAws, faAdobe } from '@fortawesome/free-brands-svg-icons';
+  // faDocker, faAws, 
+  faAdobe } from '@fortawesome/free-brands-svg-icons';
 
   import Computer from './Computer';
   import Skills from './Skills';
@@ -16,22 +17,22 @@ import { faHtml5, faCss3Alt, faJs, faSass, faLess, faNodeJs, faReact, faVuejs, f
 
 const CursorPosition = (props) => {
 
-  const {
-    detectedEnvironment: {
-      isMouseDetected = false,
-      isTouchDetected = false
-    } = {},
-    elementDimensions: {
-      width = 0,
-      height = 0
-    } = {},
-    isActive = false,
-    isPositionOutside = false,
-    position: {
-      x = 0,
-      y = 0
-    } = {}
-  } = props;
+  // const {
+  //   detectedEnvironment: {
+  //     isMouseDetected = false,
+  //     isTouchDetected = false
+  //   } = {},
+  //   elementDimensions: {
+  //     width = 0,
+  //     height = 0
+  //   } = {},
+  //   isActive = false,
+  //   isPositionOutside = false,
+  //   position: {
+  //     x = 0,
+  //     y = 0
+  //   } = {}
+  // } = props;
 
 
   return (
