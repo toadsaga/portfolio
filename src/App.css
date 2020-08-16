@@ -186,6 +186,9 @@ h1, h2, h3, h4 {
   top: 0;
   left: 0;
   background: #202e38;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .comp {
@@ -538,8 +541,8 @@ footer a .icons {
 
 .periodic-table {
   display: grid;
-  grid-template-columns: repeat(9, 100px);
-  grid-template-rows: repeat(4, 100px);
+  grid-template-columns: repeat(8, 110px);
+  grid-template-rows: repeat(4, 110px);
   grid-gap: 10px;
   margin: auto;
   max-width: 1200px;
@@ -566,69 +569,110 @@ footer a .icons {
     height: -webkit-fill-available;
 }
 .periodic-element .title {
-  font: 700 3rem/1 "Poppins", sans-serif;
+  font: 700 2.75rem/1 "Poppins", sans-serif;
   transition: 0.8s ease 600ms;
 }
 .periodic-element .description {
-  font: 500 12px "Poppins", sans-serif;
+  font: 700 14px "Poppins", sans-serif;
   margin-top: -0.2em;
 }
-/* .periodic-element:after {
+.periodic-element:after {
   z-index: 10;
   content: attr(data-description);
-  background: #f9f8f7;
-  color: #333;
-  width: 180px;
+  
   position: absolute;
-  top: 80%;
-  opacity: 0;
-  transition: opacity 0.3s ease 0.3s, top 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s;
-  height: auto;
-  font-size: 12px;
-  line-height: 1.4;
-  padding: 10px;
-  margin: 0 0 0 -50px;
-  border-radius: 6px;
-  text-align: center;
-} */
+  top: 1em;
+  right: 1em;
+  font: 600 14px "Poppins", sans-serif;
+  -webkit-text-fill-color: transparent;
+}
 .periodic-element:hover {
   transform: scale(1.12);
   z-index: 10;
+  cursor: help;
 }
 .periodic-element:hover .periodic-element-inner {
-  background: transparent;
+  background: #e5e5e5;
+  background: #172129;
 }
-.periodic-element:hover .title,
-.periodic-element:hover .description {
+.periodic-element:not(:hover) .title {
   -webkit-text-fill-color: #222;
 }
-.periodic-element:hover:after {
-  top: 105%;
-  opacity: 1;
+.periodic-element:not(:hover) .title svg * {
+  fill: inherit !important;
 }
+
 
 .periodic-element svg {
   height: 1em;
   width: 1em;
   fill: currentColor;
+  transition: all .3s ease;
 }
 
 .skill--js {
   background: linear-gradient(to bottom right, #f3f9a6 0%, #cbc634 100%);
 }
+.skill--js:not(:hover) .title svg,
+.skill--js:after,
 .skill--js .title,
 .skill--js .description {
+  color: #f3f9a6!important;
+  fill: -webkit-linear-gradient(#f3f9a6, #cbc634)!important;
   background: -webkit-linear-gradient(#f3f9a6, #cbc634);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent!important;
+}
+.skill--js.main-skill:hover ~ .skill--js {
+  transform: scale(1.12);
+  z-index: 10;
+  cursor: help;
 }
 
-.fun-stuff {
+.skill--html {
   background: linear-gradient(to bottom right, #ff616d 0%, #ffc171 100%);
 }
-.fun-stuff .title,
-.fun-stuff .description {
+.skill--html:not(:hover) .title svg,
+.skill--html:after,
+.skill--html .title,
+.skill--html .description {
+  color: #ff616d!important;
+  fill: -webkit-linear-gradient(#ff616d, #ffc171)!important;
   background: -webkit-linear-gradient(#ff616d, #ffc171);
+  background-clip: text;
+  -webkit-text-fill-color: transparent!important;
+}
+.skill--html.main-skill:hover ~ .skill--html {
+  transform: scale(1.12);
+  z-index: 10;
+  cursor: help;
+}
+
+.skill--css {
+  background: linear-gradient(to bottom right, #264de4 0%, #2965f1 100%);
+}
+.skill--css:not(:hover) .title svg,
+.skill--css:after,
+.skill--css .title,
+.skill--css .description {
+  color: #2965f1!important;
+  fill: -webkit-linear-gradient(#264de4, #2965f1)!important;
+  background: -webkit-linear-gradient(#264de4, #2965f1);
+  background-clip: text;
+  -webkit-text-fill-color: transparent!important;
+}
+.skill--css.main-skill:hover ~ .skill--css {
+  transform: scale(1.12);
+  z-index: 10;
+  cursor: help;
+}
+
+.skill--graphic {
+  background: linear-gradient(to bottom right, #FF0000 0%, #DA1F26 100%);
+}
+.skill--graphic .title,
+.skill--graphic .description {
+  background: -webkit-linear-gradient(#FF0000, #DA1F26);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -636,69 +680,43 @@ footer a .icons {
 .php-stuff {
   background: linear-gradient(to bottom right, #4f5b93 0%, #8892be 100%);
 }
+.php-stuff:not(:hover) .title svg,
+.php-stuff:after,
 .php-stuff .title,
 .php-stuff .description {
+  color: #4f5b93!important;
+  fill: -webkit-linear-gradient(#4f5b93, #8892be)!important;
   background: -webkit-linear-gradient(#4f5b93, #8892be);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.php-stuff.main-skill:hover ~ .php-stuff {
+  transform: scale(1.12);
+  z-index: 10;
+  cursor: help;
 }
 
 
-.skill--css {
-  background: linear-gradient(to bottom right, #264de4 0%, #2965f1 100%);
-}
-.skill--css .title,
-.skill--css .description {
-  background: -webkit-linear-gradient(#264de4, #2965f1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
 .skill--other {
   background: linear-gradient(to bottom right, #58ac30 0%, #a7df62 100%);
 }
+.skill--other:not(:hover) .title svg,
+.skill--other:after,
 .skill--other .title,
 .skill--other .description {
+  color: #58ac30!important;
+  fill: -webkit-linear-gradient(#58ac30, #a7df62)!important;
   background: -webkit-linear-gradient(#58ac30, #a7df62);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.legend-table {
-  padding: 15px;
-  text-align: center;
-  font-size: 15px;
-  margin: 2em auto 0;
-}
-.legend-table__marker {
-  width: 25px;
-  height: 25px;
-  margin: 5px 5px 10px;
-  display: inline-block;
-  vertical-align: middle;
-  box-shadow: 0.5px 1px rgba(0, 0, 0, 0.15);
-}
-.legend-table__text {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 25px 5px 5px;
-  background: -webkit-linear-gradient(#ccc, #eee);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.legend-table__direction {
-  display: inline-block;
-  margin: 10px 15px 10px 10px;
-  background: -webkit-linear-gradient(#ccc, #eee);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .empty-spacer-1 {
-  grid-column: 3 / span 4;
+  grid-column: 3 / span 5;
   grid-row: 1;
 }
 .empty-spacer-2 {
-  grid-column: 1;
+  grid-column: 1 / span 3;
   grid-row: 4;
 }
