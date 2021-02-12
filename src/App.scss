@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
+
+:root {
+    font-size: 100%;
+    font-family: 'Open Sans', sans-serif;
+    color: #e5e5e5;
+    text-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: clamp(.75rem, 2vw, 2rem);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #202840;
+    background-attachment: fixed;
+    background-size: cover;
+    background: #202e38;
+    font-family: 'Poppins', sans-serif;
+
+    h1,
+    h2 {
+        font-weight: lighter;        
+        letter-spacing: 2px;
+        text-align: center;
+    }
+
+    h1 { font-size: 2em; }
+    h2 { font-size: 3em; font-weight: bold; }
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+
+section {
+    position: relative;
+    display: flex;
+
+    &.home {
+        min-height: 100vh;
+
+        &::before {
+            z-index: 0;
+            content: '';
+            background: linear-gradient(rgba(10, 10, 10, 0.6), rgba(0, 0, 0, 0.9)),
+            repeating-linear-gradient(0, transparent, transparent 2px, black 3px, black 3px),
+            url('https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2468&q=80');
+            background-size: cover;
+            background-position: center;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            position: absolute;
+            opacity: 1;
+            transition: opacity 240ms ease-in-out;
+        }
+
+        &.home--privateAccess::before {
+            opacity: .15
+        }
+    }
+
+    .inner {
+        position: relative;
+        transition: transform 100ms ease;
+        margin: auto;
+        max-width: 1000px;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h2 {
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            justify-content: center;
+            
+            &::before,
+            &::after {
+                content: "{";
+                line-height: 2;
+                font-weight: 900;
+                margin: 0 .5em;
+                font-family: sans-serif;
+            }
+
+            &::after {
+                content: "}";
+            }
+        }
+    }
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 2em;
+    list-style: none;
+
+    li { 
+        margin: .5em;
+        cursor: pointer;
+        position: relative;
+
+        span {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            display: block;
+            font-size: .625em;
+            color: white;
+            opacity: 0;
+            transform: translate(-50%, 50%);
+            transition: all 240ms ease-in-out;
+            white-space: nowrap;
+        }
+
+        &:hover span {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+    }
+}
+
+form {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    color: white;
+    padding: 30vh 10vw;
+    background-color: rgba(0, 0, 0, 0.9);
+
+    .form-item {    
+        display: flex;
+        align-items: center;
+
+        svg {
+            font-size: 4em;
+            line-height: 1;
+        }
+
+        input {
+            flex: 1 1 auto;
+            width: calc(100% - 1em - 1ch);
+            font-size: 5em;
+            appearance: none;
+            border: 0;
+            outline: 0;
+            background: none;
+            caret-color: white;
+            color: inherit;
+            font-family: inherit;
+            margin-left: .5ch;
+        }
+    }
+
+    .form-helper {
+        margin-left: calc(7.5em + 1ch);
+        font-size: .75em;
+    }
+}
+
+
+@mixin glitchCopy {
+    content: attr(data-glitch);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitched {
+    animation: glitch-skew 1s infinite linear alternate-reverse;
+
+    &::before {
+        // Duplicates our text with the mixin.
+        @include glitchCopy;
+        // Scoots text slightly to the left for the color offset.
+        left: 2px;
+        // Creates the color 'shadow' that happens on the glitch.
+        text-shadow: -2px 0 #ff00c1;
+        /* Creates an initial clip for our glitch. This works in
+        a typical top,right,bottom,left fashion and creates a mask
+        to only show a certain part of the glitch at a time. */
+        clip: rect(44px, 450px, 56px, 0);
+        /* Runs our glitch-anim defined below to run in a 5s loop, infinitely,
+        with an alternating animation to keep things fresh. */
+        animation: glitch-anim 5s infinite linear alternate-reverse;
+    }
+
+    // Creates a copy after our text. Note comments from ::before.
+    &::after {
+        @include glitchCopy;
+        left: -2px;
+        text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+        animation: glitch-anim2 1s infinite linear alternate-reverse;
+    }
+
+    &:hover {
+        animation: none;
+        
+        &::before,
+        &::after {
+            content: none;
+        }
+    }
+}
+
+@keyframes glitch-anim {
+    $steps: 20;
+    @for $i from 0 through $steps {
+        #{percentage($i*(1/$steps))} {
+            clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+            transform: skew((random(100) / 100) + deg);
+        }
+    }
+}
+
+// Same deal, just duplicated for ultra randomness.
+@keyframes glitch-anim2 {
+    $steps: 20;
+    @for $i from 0 through $steps {
+        #{percentage($i*(1/$steps))} {
+            clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+            transform: skew((random(100) / 100) + deg);
+        }
+    }
+}
+
+// Does the same deal as before, but now only skews. Used for main text.
+@keyframes glitch-skew {
+    $steps: 10;
+    @for $i from 0 through $steps {
+        #{percentage($i*(1/$steps))} {
+            transform: skew((random(10) - 5) + deg);
+        }
+    }
+}
+
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-5px, 5px);
+    }
+    40% {
+        transform: translate(-5px, -5px);
+    }
+    60% {
+        transform: translate(5px, 5px);
+    }
+    80% {
+        transform: translate(5px, -5px);
+    }
+    to {
+        transform: translate(0);
+    }
+}
